@@ -3,21 +3,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t brandontan/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t brtan/react-test -f ./client/Dockerfile.dev ./client
 
 
 script:
-  - docker run brandontan/react-test npm test -- --coverage
+  - docker run brtan/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t brandontan/multi-client ./client
-  - docker build -t brandontan/multi-nginx ./nginx
-  - docker build -t brandontan/multi-server ./server
-  - docker build -t brandontan/multi-worker ./worker
+  - docker build -t brtan/multi-client ./client
+  - docker build -t brtan/multi-nginx ./nginx
+  - docker build -t brtan/multi-server ./server
+  - docker build -t brtan/multi-worker ./worker
   #Login to Docker cli
   - echo "$PWD" | docker login -u "$ID" --password-stdin
   #Push images  to dockerhub
-  - docker push brandontan/multi-client
-  - docker push brandontan/multi-nginx
-  - docker push brandontan/multi-server
-  - docker push brandontan/multi-worker
+  - docker push brtan/multi-client
+  - docker push brtan/multi-nginx
+  - docker push brtan/multi-server
+  - docker push brtan/multi-worker
