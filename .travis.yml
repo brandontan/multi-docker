@@ -15,7 +15,7 @@ after_success:
   - docker build -t brandontan/multi-server ./server
   - docker build -t brandontan/multi-worker ./worker
   #Login to Docker cli
-  - echo "$PWD" | docker login - u "$ID" --password-stdin
+  - echo "$PWD" | docker login -u "$ID" --password-stdin
   #Push images  to dockerhub
   - docker push brandontan/multi-client
   - docker push brandontan/multi-nginx
