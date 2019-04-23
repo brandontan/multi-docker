@@ -21,5 +21,3 @@ after_success:
   - docker push brandontan/multi-nginx
   - docker push brandontan/multi-server
   - docker push brandontan/multi-worker
-
-
